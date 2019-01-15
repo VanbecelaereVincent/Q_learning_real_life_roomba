@@ -1,0 +1,11 @@
+CAMERA
+
+ROS installed 
+CAMERA stream ready 
+keras/tensorflow installed 
+
+
+FRIENDLY 
+
+
+ENEMY

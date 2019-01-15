@@ -1,0 +1,36 @@
+	OPERATING SYSTEM: UBUNTU MATE LTS
+
+-----------------------------------------------------CONFIG-----------------------------------------------------
+#######ROS - KINETIC #######
+
+http://wiki.ros.org/kinetic/Installation/Ubuntu
+
+#######opencv#######
+
+
+#######python 3.5#######
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt-get update
+sudo apt-get install python3.5
+
+#######KERAS/DEEPLEARNING#######
+
+https://medium.com/@paroskwan/layman-installation-guide-for-keras-and-tensorflow-on-rpi-3-38b84f3e59dc
+
+Bij mij: python3 -m pip install ipv pip3 install (want je krijgt een no attribute 'main' error) 
+
+-----------------------------------------------------COMMANDS-----------------------------------------------------
+
+
+#######stream#######
+
+cd ros_ws
+
+source devel/setup.bash
+
+roslaunch video_server video_server.launch 
+
+cd /var/www/html
+
+rosrun image_view image_saver image:=/webcam/image_raw _filename_format:=frame.jpg

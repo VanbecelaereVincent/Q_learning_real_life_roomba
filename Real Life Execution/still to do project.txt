@@ -1,0 +1,11 @@
+Raspberry pi: 
+
+- script dat camera uitleest (ROS, staat eigenlijk al op de mijne)
+- script om de stofzuigers aan te sturen (heb ik ook al deels)
+
+
+Neuraal netwerk: 
+
+- trainen op fotos van groene en rode stofzuigers
+- env afbakenen dmv een grid op de fotos
+- wordt gebruikt om zowel de positie van de stofzuigers te bepalen als ze te positioneren. 
