@@ -5,7 +5,6 @@ import keyboard
 
 #je krijgt binnen jouw turn my young padawan & dan kan je een key indrukken en dus een actie kiezen
 
-
 def action():
 
     my_turn = 0
