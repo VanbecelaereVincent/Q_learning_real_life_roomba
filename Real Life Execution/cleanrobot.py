@@ -3,7 +3,7 @@ from pycreate2 import Create2
 
 import serial
 
-ser = serial.Serial('COM11', 19200)
+ser = serial.Serial('COM4', 19200)
 
 ser.write(128)
 ser.write(131)

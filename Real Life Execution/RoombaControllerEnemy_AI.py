@@ -5,9 +5,10 @@ import numpy as np
 from random import choice
 import keyboard
 
+#-----------------------------------------------------------------
 #THIS SCRIPT CONTROLS THE ENEMY ROOMBA USING Q LEARNING
+#-----------------------------------------------------------------
 
-#OPMERKING: zal iedere keer de posities moeten doorsturen tussen de roombas
 
 def read_file(filename):
     new_data = np.loadtxt(filename)
@@ -22,8 +23,6 @@ def on_connect(client,userdata,flags,rc):
 def on_message(client, userdata, msg):
 
     value = msg.payload.decode('utf-8')
-
-    # print(str(value))
 
     if(msg.topic == '/roomba2/state_friendly'):
 
@@ -71,7 +70,7 @@ def on_message(client, userdata, msg):
 
     elif(msg.topic == "/roomba2/victory_friendly"):
 
-        print("fuck I lost, better luck next game I guess.. Reset incoming!")
+        print("Damn I lost, better luck next game I guess.. Reset incoming!")
         reset()
 
 
@@ -172,8 +171,6 @@ def drive(action, state_enemy):
         done = check_victory(state_enemy)
 
 
-
-
     elif (action == "R"):
 
         # hier moet mijn gyro code komen die zorgt dat hij altijd even ver rijdt
@@ -195,8 +192,6 @@ def drive(action, state_enemy):
         done = check_victory(state_enemy)
 
     elif (action == "S"):
-
-        # hier moet mijn gyro code komen die zorgt dat hij altijd even ver rijdt
 
         state_enemy = state_enemy
 
@@ -266,10 +261,6 @@ if __name__ == '__main__':
 
         print("script enemy q learning")
 
-        print("bot gestart")
-
-        print("in safe mode geplaatst")
-
         client.on_connect = on_connect
         client.on_message = on_message
         client.connect("78.22.164.90", 1883, 60)
@@ -278,10 +269,6 @@ if __name__ == '__main__':
         actions = ["F", "B", "L", "R", "S"]
 
         done = False
-
-        # client.publish("/roomba/state_friendly", "start")
-
-
 
         client.loop_forever()
         print("connected to mqtt client")
@@ -296,9 +283,6 @@ if __name__ == '__main__':
         print(e)
 
     finally:
-        if bot:
-            bot.stop()
-            bot.close()
         if client:
             client.disconnect()
 

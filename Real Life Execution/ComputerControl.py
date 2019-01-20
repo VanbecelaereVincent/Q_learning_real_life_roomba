@@ -1,41 +1,127 @@
+import paho.mqtt.client as mqtt
+
+#-------------------------------------------------------------------------------------------
 #THIS SCRIPT IS USED FOR PLAYING EITHER AS ENEMY OR FRIENDLY AGAINST AN AI TRAINED AGENT
-#configured for windows
-import keyboard
+#-------------------------------------------------------------------------------------------
+def on_connect(client,userdata,flags,rc):
+
+    print("Connected with result code" + str(rc))
+
+def on_message(client, userdata, msg):
+
+    value = msg.payload.decode('utf-8')
+
+    if(msg.topic == "/roomba2/computer_control"):
+        print(value)
+
+        if(value[0] == "["):
+
+            try:
+
+                legal_actions = list(value)
+
+                print("Please choose an action. Valid actions are: ")
+
+                for _action in legal_actions:
+
+                    print("Action: {0}".format(_action))
+
+                chosen_action = action(legal_actions)
 
 
-#je krijgt binnen jouw turn my young padawan & dan kan je een key indrukken en dus een actie kiezen
+                client.publish("/roomba2/computer_action", chosen_action)
 
-def action():
+            except Exception as ex:
+                print(ex)
 
-    my_turn = 0
+        else: pass
 
-    #hier nog ergens heeltijd naar mqtt luisteren om die my_turn op 1 te krijgen en dan terug op nul
+def action(legal_actions):
 
-    if my_turn == 1:
 
-        if(keyboard.is_pressed("f")):
+        action = str(input("Please choose an action: "))
 
-            #code die de command doorstuurt naar een script dat luistert (mss dus twee scripts op de pies, eentje voor q learning
-            #, eentje voor besturing vanaf de pc!
 
-            my_turn=0
+        if(action == "f"):
 
-        if(keyboard.is_pressed("b")):
+            chosen_action = "F"
+            if(chosen_action in legal_actions):
+                action = chosen_action
+            else:
+                print("This is a valid action, but not from this position.. Try again.")
+            print("returning action to robot...")
+            return action
 
-            my_turn=0
+        elif(action == 'b'):
 
-        if(keyboard.is_pressed("l")):
+            chosen_action = "B"
+            if (chosen_action in legal_actions):
+                action = chosen_action
+            else:
+                print("This is a valid action, but not from this position.. Try again.")
+            print("returning action to robot...")
+            return action
 
-            my_turn=0
+        elif(action == "l"):
 
-        if(keyboard.is_pressed("r")):
+            chosen_action = "L"
+            if (chosen_action in legal_actions):
+                action = chosen_action
+            else:
+                print("This is a valid action, but not from this position.. Try again.")
+            print("returning action to robot...")
+            return action
 
-            my_turn=0
+        elif(action == "r"):
 
-        if(keyboard.is_pressed("s")):
+            chosen_action = "R"
+            if (chosen_action in legal_actions):
+                action = chosen_action
+            else:
+                print("This is a valid action, but not from this position.. Try again.")
+            print("returning action to robot...")
+            return action
 
-            my_turn = 0
+        elif(action == "s"):
+
+            chosen_action = "S"
+            if (chosen_action in legal_actions):
+                action = chosen_action
+            else:
+                print("This is a valid action, but not from this position.. Try again.")
+            print("returning action to robot...")
+            return action
 
         else:
+            print("Don't be silly.. ")
 
-            pass
+
+
+if __name__ == '__main__':
+
+    client = mqtt.Client()
+
+    try:
+
+        print("script enemy pc control")
+
+        client.on_connect = on_connect
+        client.on_message = on_message
+        client.connect("78.22.164.90", 1883, 60)
+        msg = client.subscribe('/roomba2/#')
+
+        actions = ["F", "B", "L", "R", "S"]
+
+        client.loop_forever()
+        print("connected to mqtt client")
+
+
+    except KeyboardInterrupt:
+        print("Bye")
+
+    except Exception as e:
+        print(e)
+
+    finally:
+        if client:
+            client.disconnect()

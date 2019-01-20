@@ -5,10 +5,10 @@ import numpy as np
 from random import choice
 import keyboard
 
+#-----------------------------------------------------------------
+#THIS SCRIPT CONTROLS THE ENEMY ROOMBA USING COMPUTER INPUT
+#-----------------------------------------------------------------
 
-# THIS SCRIPT CONTROLS THE ENEMY ROOMBA USING USER INPUT
-
-# OPMERKING: zal iedere keer de posities moeten doorsturen tussen de roombas
 
 def read_file(filename):
     new_data = np.loadtxt(filename)
@@ -16,57 +16,96 @@ def read_file(filename):
     return new_data
 
 
-def on_connect(client, userdata, flags, rc):
+def on_connect(client,userdata,flags,rc):
+
     print("Connected with result code" + str(rc))
 
-
 def on_message(client, userdata, msg):
+
     value = msg.payload.decode('utf-8')
 
     print(str(value))
 
-    if (msg.topic == '/roomba/state_friendly'):
 
-        state_friendly = value
+    if(msg.topic == '/roomba2/state_friendly'):
 
-    elif (msg.topic == "/roomba/turn_enemy"):
+        global state_enemy
+        global state_friendly
+        try:
 
-        if (value == 0):
-            print("hmmm I really want to make my move but it's the friendly 's turn... ")
+            if (value == "start"):
+
+                state_enemy = 39
+                state_friendly = 6
+
+            else:
+
+                states_list = value.split(",")
+                state_enemy = int(states_list[0])
+                state_friendly = int(states_list[1])
+                print("State friendly has been updated {0}".format(state_friendly))
+                print("I also received my own position which is: {0}".format(state_enemy))
+
+
+        except Exception as ex:
+            print(ex)
+
+
+    if(msg.topic == "/roomba2/turn_enemy"):
+
+        if(value == "0"):
+
+            print("hmmmmmmm I really want to make my move but it's the friendly's turn...")
 
         else:
-            step(state_friendly, state_enemy)
+            print("my move, asking human for help...")
+            legal_actions = get_legal_actions(state_enemy)
+            client.publish("/roomba2/computer_control", str(legal_actions))
 
-    elif (msg.topic == "/roomba/victory_friendly"):
 
+    if(msg.topic == "/roomba2/computer_action"):
+        action = value
+        print("human chose: {0}".format(action))
+
+
+        print("making my move")
+        print(state_friendly)
+        print("Making my move with the updated state of anakin {0}".format(state_friendly))
+        step(state_friendly, state_enemy, action)
+        print("made my move")
+
+
+
+
+    if(msg.topic == "/roomba2/victory_friendly"):
+
+        print("fuck I lost, better luck next game I guess.. Reset incoming!")
         reset()
 
 
     else:
         pass
 
-
 def get_legal_actions(state):
+
     if (state == 0):
         actions = ["F", "R", "S"]
         return actions
 
-    elif (state == 10):
+    elif(state == 10):
         actions = ["F", "L", "S"]
 
-    elif (state == 110):
+    elif(state == 110):
         actions = ["B", "R", "S"]
 
-    elif (state == 121):
-        actions = ["B", "L", "S"]
+    elif(state == 121):
+        actions = ["B","L","S"]
 
-    elif (
-            state == 11 or state == 22 or state == 33 or state == 44 or state == 55 or state == 66 or state == 77 or state == 88 or state == 99):
+    elif(state == 11 or state == 22 or state == 33 or state == 44 or state == 55 or state == 66 or state == 77 or state == 88 or state ==99):
         actions = ["F", "B", "R", "S"]
 
-    elif (
-            state == 21 or state == 32 or state == 43 or state == 54 or state == 65 or state == 76 or state == 87 or state == 98 or state == 109):
-        actions = ["F", "B", "L", "S"]
+    elif(state == 21 or state == 32 or state == 43 or state == 54 or state == 65 or state == 76 or state == 87 or state == 98 or state == 109):
+        actions = ["F", "B", "L","S"]
 
     else:
         actions = ["F", "B", "L", "R", "S"]
@@ -75,7 +114,8 @@ def get_legal_actions(state):
 
 
 def check_victory(state_enemy):
-    if (state_enemy == state_friendly):
+
+    if(state_enemy == state_friendly):
 
         return True
 
@@ -85,14 +125,21 @@ def check_victory(state_enemy):
 
 
 def drive(action, state_enemy):
+
+    print("Chosen action: {0}".format(action))
+
+    bot = Create2('/dev/ttyUSB0', 115200)
+    bot.start()
+    bot.safe()
+
     if (action == "F"):
 
         # hier moet mijn gyro code komen die zorgt dat hij altijd even ver rijdt
-        bot.drive_distance(1, 20)
+        bot.drive_distance(1, 100)
         # kan zijn dat dit niet gaat werken en ik dit naar nex_state moet hernoemen, eens kijken
 
         bot.drive_stop()
-        bot.safe()
+        bot.close()
 
         state_enemy += 11
 
@@ -102,10 +149,10 @@ def drive(action, state_enemy):
     elif (action == "B"):
 
         # hier moet mijn gyro code komen die zorgt dat hij altijd even ver rijdt
-        bot.drive_distance(-1, 20)
+        bot.drive_distance(-1, 100)
 
         bot.drive_stop()
-        bot.safe()
+        bot.close()
 
         state_enemy -= 11
 
@@ -114,19 +161,18 @@ def drive(action, state_enemy):
     elif (action == "L"):
 
         # hier moet mijn gyro code komen die zorgt dat hij altijd even ver rijdt
-        angle = 0
 
-        while angle <= 90:
-            bot.turn_angle(0.1, 20)
-            angle += 0.1
-        bot.drive_distance(1, 20)
-
-        while angle != 0:
-            bot.turn_angle(-0.1, 20)
-            angle -= 0.1
+        bot.turn_angle(-90,50)
 
         bot.drive_stop()
         bot.safe()
+
+        bot.drive_distance(1,100)
+
+        bot.turn_angle(90,50)
+
+        bot.drive_stop()
+        bot.close()
 
         state_enemy -= 1
 
@@ -138,20 +184,18 @@ def drive(action, state_enemy):
     elif (action == "R"):
 
         # hier moet mijn gyro code komen die zorgt dat hij altijd even ver rijdt
-        angle = 0
 
-        while angle <= 90:
-            bot.turn_angle(-0.1, 20)
-            angle += 0.1
-
-        bot.drive_distance(1, 20)
-
-        while angle != 0:
-            bot.turn_angle(0.1, 20)
-            angle -= 0.1
+        bot.turn_angle(90, 50)
 
         bot.drive_stop()
         bot.safe()
+
+        bot.drive_distance(1, 100)
+
+        bot.turn_angle(-90, 50)
+
+        bot.drive_stop()
+        bot.close()
 
         state_enemy += 1
 
@@ -171,92 +215,62 @@ def drive(action, state_enemy):
     return state_enemy, done
 
 
-def step(state_friendly, state_enemy):
-
-
-    actions = get_legal_actions(state_enemy)
-    action = ""
-
-    while action not in actions:
-
-        #hier niet zelf keyboard press maar wachten op een berichtje!!!  (dus chosen action meegeven aan step)
-
-        if (keyboard.is_pressed("f")):
-
-            action = "F"
-
-        elif (keyboard.is_pressed("b")):
-
-            action = "B"
-
-        elif (keyboard.is_pressed("l")):
-
-            action = "L"
-
-        elif (keyboard.is_pressed("r")):
-
-            action = "R"
-
-        elif (keyboard.is_pressed("s")):
-
-            action = "S"
-
-        else:
-
-            print("please choose a valid action...")
+def step(state_friendly, state_enemy, action):
 
     state_enemy, done = drive(action, state_enemy)
 
-    if (done == True):
+    if(done == True):
 
         imperial_march()
         time.sleep(1)
         reset()
+
     else:
 
-        client.publish('/roomba/state_enemy', state_enemy)
-        client.publish('/roomba/turn_enemy', 0)
-        client.publish('/roomba/turn_friendly', 1)
+        states = str(state_enemy) + "," + str(state_friendly)
+        print(states)
+        client.publish('/roomba2/state_enemy', states, retain=False)
+        print("not my turn anymore")
+        client.publish('/roomba2/turn_friendly', 1, retain=False)
+        client.publish('/roomba2/turn_enemy', 0, retain=False)
 
 
 def reset():
+
     done = False
-    # hier ook een hele mooie functie die een reset performed (maar ze mogen wel niet tegen elkaar rijden hé bij een reset.....)
-    # wees slim vincent (maar nu niet te laat op de avond om het te bepeizen)
 
 
 def imperial_march():
+
     pass
 
 
 if __name__ == '__main__':
 
-    bot = Create2('/dev/ttyUSB0', 115200)
+
     client = mqtt.Client()
 
-    global state_friendly
-    global state_enemy
-    global done
 
     try:
 
-        bot.start()
-        print("bot gestart")
-        bot.safe()
-        print("in safe mode geplaatst")
+        print("script enemy pc control")
+
 
         client.on_connect = on_connect
         client.on_message = on_message
-        client.connect("78.22.129.133", 1883, 60)
-        msg = client.subscribe('/roomba/#')
+        client.connect("78.22.164.90", 1883, 60)
+        msg = client.subscribe('/roomba2/#')
+
+        actions = ["F", "B", "L", "R", "S"]
+
+        done = False
+
+
         client.loop_forever()
         print("connected to mqtt client")
 
-        # hier zelfde probleem gaat hij dit wel doen (staat achter de loopforever)
 
-        state_friendly = 6
-        state_enemy = 39
-        done = False
+
 
     except KeyboardInterrupt:
         print("Bye")
@@ -265,9 +279,6 @@ if __name__ == '__main__':
         print(e)
 
     finally:
-        if bot:
-            bot.stop()
-            bot.close()
         if client:
             client.disconnect()
 
