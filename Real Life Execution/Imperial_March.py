@@ -3,7 +3,7 @@ import time
 
 # this is the port you're connecting to the irobot with
 # on windows, this is something like COM2
-N = "/dev/ttyUSB0"
+N = "COM11"
 
 def ints2str(lst):
     '''
