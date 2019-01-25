@@ -3,9 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="2ce8df3e-f563-472e-891f-fd40959ae0e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Classify_Image.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ComputerControl.py" beforeDir="false" afterPath="$PROJECT_DIR$/ComputerControl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Imperial_March.py" beforeDir="false" afterPath="$PROJECT_DIR$/Imperial_March.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q_enemy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Q_enemy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Q_friendly.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Q_friendly.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RoombaControllerEnemy_AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/RoombaControllerEnemy_AI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RoombaControllerEnemy_PC.py" beforeDir="false" afterPath="$PROJECT_DIR$/RoombaControllerEnemy_PC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RoombaControllerFriendly_AI.py" beforeDir="false" afterPath="$PROJECT_DIR$/RoombaControllerFriendly_AI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RoombaControllerFriendly_PC.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cleanrobot.py" beforeDir="false" afterPath="$PROJECT_DIR$/cleanrobot.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,23 +64,23 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="29" />
-          <entry key="py" value="11529" />
+          <entry key="py" value="12418" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="Python" value="11529" />
+          <entry key="Python" value="12418" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="44" />
+          <entry key="py" value="49" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="44" />
+          <entry key="Python" value="49" />
         </counts>
       </usages-collector>
     </session>
@@ -82,10 +88,54 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_AI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#4888#4892#0" />
+                <marker date="1548256116698" expanded="true" signature="2712:2809" ph="..." />
+                <marker date="1548256116698" expanded="true" signature="5623:9232" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RoombaControllerFriendly_AI.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#6153#9754#0" />
+                <marker date="1548256322664" expanded="true" signature="5712:5723" ph="..." />
+                <marker date="1548256322664" expanded="true" signature="5712:5727" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_PC.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-850">
+              <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+              <folding>
+                <element signature="e#1999#2686#0" />
+                <element signature="e#2726#2814#0" />
+                <element signature="e#5611#9212#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cleanrobot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="255">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -94,41 +144,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_AI.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1173">
-              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <marker date="1548010472065" expanded="true" signature="2753:2850" ph="..." />
-                <marker date="1548010472065" expanded="true" signature="5395:5408" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_PC.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <element signature="e#1999#2686#0" />
-                <element signature="e#2726#2814#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ComputerControl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="37" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="56" />
+            <state relative-caret-position="238">
+              <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
               <folding>
-                <marker date="1548015884136" expanded="true" signature="1037:1038" ph="..." />
-                <marker date="1548015884136" expanded="true" signature="1064:1125" ph="..." />
+                <marker date="1548254060963" expanded="true" signature="1157:1158" ph="..." />
+                <marker date="1548254060963" expanded="true" signature="1184:1245" ph="..." />
               </folding>
             </state>
           </provider>
@@ -193,20 +215,20 @@
         <option value="$PROJECT_DIR$/RoombaControllerEnemy.py" />
         <option value="$PROJECT_DIR$/RoombaControllerFriendly.py" />
         <option value="$PROJECT_DIR$/RoombaController_Enemy_PC.py" />
+        <option value="$PROJECT_DIR$/testfile.py" />
         <option value="$PROJECT_DIR$/RoombaControllerFriendly_PC.py" />
         <option value="$PROJECT_DIR$/Imperial_March.py" />
-        <option value="$PROJECT_DIR$/RoombaControllerFriendly_AI.py" />
-        <option value="$PROJECT_DIR$/RoombaControllerEnemy_AI.py" />
-        <option value="$PROJECT_DIR$/testfile.py" />
         <option value="$PROJECT_DIR$/ComputerControl.py" />
+        <option value="$PROJECT_DIR$/RoombaControllerEnemy_AI.py" />
+        <option value="$PROJECT_DIR$/RoombaControllerFriendly_AI.py" />
         <option value="$PROJECT_DIR$/RoombaControllerEnemy_PC.py" />
         <option value="$PROJECT_DIR$/cleanrobot.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -249,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cleanrobot">
+  <component name="RunManager" selected="Python.ComputerControl">
     <configuration name="ComputerControl" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Real Life Execution" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -364,8 +386,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.cleanrobot" />
         <item itemvalue="Python.ComputerControl" />
+        <item itemvalue="Python.cleanrobot" />
         <item itemvalue="Python.testfile" />
         <item itemvalue="Python.Imperial_March" />
         <item itemvalue="Python.TESTCLASS" />
@@ -387,6 +409,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2485129" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -401,7 +424,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -416,13 +439,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="8" selection-start-line="2" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Classify_Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -499,22 +515,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nogéén.py" />
     <entry file="file://$PROJECT_DIR$/example.py" />
-    <entry file="file://$PROJECT_DIR$/RoombaControllerFriendly_PC.py">
+    <entry file="file://$PROJECT_DIR$/testfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="39" column="40" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1547845821978" expanded="true" signature="3751:3752" ph="..." />
-            <marker date="1547845821978" expanded="true" signature="3751:3753" ph="..." />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Classify_Image.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RoombaControllerFriendly_PC.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Imperial_March.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="7" lean-forward="true" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+        <state relative-caret-position="221">
+          <caret line="13" column="10" lean-forward="true" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
@@ -523,51 +544,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RoombaControllerFriendly_AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="248" column="44" selection-start-line="248" selection-start-column="44" selection-end-line="248" selection-end-column="44" />
+        <state relative-caret-position="136">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#1031#1753#0" />
-            <element signature="e#1796#1877#0" />
+            <element signature="e#6153#9754#0" />
+            <marker date="1548256322664" expanded="true" signature="5712:5723" ph="..." />
+            <marker date="1548256322664" expanded="true" signature="5712:5727" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="20" lean-forward="true" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_AI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="238">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1548010472065" expanded="true" signature="2753:2850" ph="..." />
-            <marker date="1548010472065" expanded="true" signature="5395:5408" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_PC.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#1999#2686#0" />
-            <element signature="e#2726#2814#0" />
+            <element signature="e#4888#4892#0" />
+            <marker date="1548256116698" expanded="true" signature="2712:2809" ph="..." />
+            <marker date="1548256116698" expanded="true" signature="5623:9232" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cleanrobot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="255">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -576,11 +580,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ComputerControl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="37" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="56" />
+        <state relative-caret-position="238">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
           <folding>
-            <marker date="1548015884136" expanded="true" signature="1037:1038" ph="..." />
-            <marker date="1548015884136" expanded="true" signature="1064:1125" ph="..." />
+            <marker date="1548254060963" expanded="true" signature="1157:1158" ph="..." />
+            <marker date="1548254060963" expanded="true" signature="1184:1245" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RoombaControllerEnemy_PC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-850">
+          <caret line="1" column="9" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+          <folding>
+            <element signature="e#1999#2686#0" />
+            <element signature="e#2726#2814#0" />
+            <element signature="e#5611#9212#0" />
           </folding>
         </state>
       </provider>

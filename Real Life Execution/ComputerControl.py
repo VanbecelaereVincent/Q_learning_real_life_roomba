@@ -3,6 +3,7 @@ import paho.mqtt.client as mqtt
 #-------------------------------------------------------------------------------------------
 #THIS SCRIPT IS USED FOR PLAYING EITHER AS ENEMY OR FRIENDLY AGAINST AN AI TRAINED AGENT
 #-------------------------------------------------------------------------------------------
+
 def on_connect(client,userdata,flags,rc):
 
     print("Connected with result code" + str(rc))
@@ -17,6 +18,9 @@ def on_message(client, userdata, msg):
         if(value[0] == "["):
 
             try:
+                b = "[]', "
+                for char in b:
+                    value = value.replace(char, "")
 
                 legal_actions = list(value)
 
@@ -24,7 +28,7 @@ def on_message(client, userdata, msg):
 
                 for _action in legal_actions:
 
-                    print("Action: {0}".format(_action))
+                    print("Action: {0}".format(_action.lower()))
 
                 chosen_action = action(legal_actions)
 
